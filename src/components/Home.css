@@ -1,0 +1,198 @@
+/* src/components/Home.css */
+
+/* General Home Section Overrides */
+#home {
+    position: relative;
+    /* background-attachment: fixed; Optional: Parallax effect on desktop */
+}
+
+/* Glassmorphism Container */
+.glass-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Profile Picture Glow */
+.profile-pic-container {
+    position: relative;
+    width: 180px;
+    /* Slightly larger than before */
+    height: 180px;
+    margin: 0 auto 20px;
+}
+
+.profile-pic-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.8);
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    animation: glow-pulse 3s infinite ease-in-out;
+}
+
+@keyframes glow-pulse {
+    0% {
+        box-shadow: 0 0 20px rgba(72, 177, 77, 0.4);
+        /* Greenish tint from theme */
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(72, 177, 77, 0.7);
+        transform: scale(1.02);
+    }
+
+    100% {
+        box-shadow: 0 0 20px rgba(72, 177, 77, 0.4);
+        transform: scale(1);
+    }
+}
+
+/* Typography Enhancements */
+.name-gradient {
+    font-size: 3.5rem;
+    /* Larger font */
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #ffffff, #a8e063);
+    /* White to Light Green */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+}
+
+/* Interactive Buttons */
+.hero-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.primary-btn {
+    background: #48b14d;
+    /* Theme Green */
+    color: white;
+    border: 2px solid #48b14d;
+    box-shadow: 0 4px 15px rgba(72, 177, 77, 0.4);
+}
+
+.primary-btn:hover {
+    background: transparent;
+    color: #48b14d;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(72, 177, 77, 0.6);
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid white;
+}
+
+.secondary-btn:hover {
+    background: white;
+    color: #131313;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Adjustments */
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .name-gradient {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .name-gradient {
+        font-size: 2.2rem;
+    }
+
+    .glass-content {
+        padding: 20px;
+        width: 90%;
+        margin-top: 50px;
+        /* Add top margin for mobile navbar */
+    }
+
+    .profile-pic-container {
+        width: 140px;
+        height: 140px;
+    }
+
+    .home-text {
+        width: 95%;
+        /* Use more width on mobile */
+    }
+
+    .home-text h1 {
+        font-size: 2.5em;
+        /* Fallback override */
+        line-height: 1.2;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .name-gradient {
+        font-size: 1.8rem;
+    }
+
+    .profile-pic-container {
+        width: 120px;
+        height: 120px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        width: 100%;
+        /* Full width buttons on very small screens */
+        justify-content: center;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Typing Effect Cursor */
+.typing-cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+    color: #48b14d;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
